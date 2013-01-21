@@ -14,3 +14,9 @@ Following the book "Getting Started with Meteor.js Javascript Framework"
 by: Isaac Strack
 
 Amazon: http://amzn.com/1782160825 
+
+
+
+App is deployed to:
+
+http://lendlib.meteor.com/
