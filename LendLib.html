@@ -3,7 +3,7 @@
 </head>
 
 <body>
-	<div id="lendLib">
+	<div id="lendlib">
 	  	<div id="categories-container">
 	  		{{> categories}}
 	  	</div>
@@ -24,9 +24,9 @@
 				<div class="category btn btn-inverse" id="btnNewCat">&plus;</div>
 		{{/if}}
 		{{#each lists}}
-		<div class="category btn btn-inverse">
-			{{Category}}
-		</div>
+			<div class="category btn {{list_status}}" id="{{_id}}">
+				{{Category}}
+			</div>
 		{{/each}}
 	</div>
 </template>
@@ -37,7 +37,6 @@
 			<li class="lending_item alert">
 				<button type="button" class="close delete_item" id="{{Name}}">x</button>
 				{{Name}}
-
 				{{#if lendee_editing}}
 					<input type="text" id="edit_lendee" class="span2 pull-right" value="" />
 					{{else}}
@@ -48,7 +47,7 @@
 		{{#if list_selected}}
 			<li class="alert-success" id="btnAddItem">&plus;
 				{{#if list_adding}}
-					<input class="span4" id="item_to_add" size="32" type="text">
+					<input class="span4" id="item_to_add" size="32" type="text" />
 				{{/if}}
 			</li>
 		{{/if}}
