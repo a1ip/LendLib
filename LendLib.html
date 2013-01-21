@@ -3,9 +3,14 @@
 </head>
 
 <body>
-  	<div id="categories-container">
-  		{{> categories}}
-  	</div>
+	<div id="lendLib">
+	  	<div id="categories-container">
+	  		{{> categories}}
+	  	</div>
+	  	<div id="list">
+	  		{{> list}}
+	  	</div>
+	</div>
 </body>
 
 <template name="categories">
@@ -24,4 +29,28 @@
 		</div>
 		{{/each}}
 	</div>
+</template>
+
+<template name="list">
+	<ul id="lending_list">
+		{{#each items}}
+			<li class="lending_item alert">
+				<button type="button" class="close delete_item" id="{{Name}}">x</button>
+				{{Name}}
+
+				{{#if lendee_editing}}
+					<input type="text" id="edit_lendee" class="span2 pull-right" value="" />
+					{{else}}
+						<div class="lendee pull-right label {{LendClass}}"> {{Lendee}}</div>
+				{{/if}}
+			</li>
+		{{/each}}
+		{{#if list_selected}}
+			<li class="alert-success" id="btnAddItem">&plus;
+				{{#if list_adding}}
+					<input class="span4" id="item_to_add" size="32" type="text">
+				{{/if}}
+			</li>
+		{{/if}}
+	</ul>
 </template>
