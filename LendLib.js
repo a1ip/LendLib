@@ -156,18 +156,8 @@ if (Meteor.isClient) {
 
 }
 
-if (Meteor.is_server) {
+if (Meteor.isServer) {
   Meteor.startup(function () {
-    //option 1: without underscore, works with default meteor install
-    Meteor.default_server.method_handlers['/foo/insert'] = function () {};
-    Meteor.default_server.method_handlers['/foo/update'] = function () {};
-    Meteor.default_server.method_handlers['/foo/remove'] = function () {};
-       
-    //option 2: with underscore (meteor add underscore)
-    _.each(['foo', 'bar'], function (collection) {
-      _.each(['insert', 'update', 'remove'], function (method) {
-        Meteor.default_server.method_handlers['/' + collection + '/' + method] = function () {};
-      });
-    });
+    // code to run on server at startup
   });
 }
