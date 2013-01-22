@@ -9,12 +9,18 @@ function adminUser(userId) {
 
 lists.allow({
   insert: function(userId, doc) {
-    return adminUSer(userId);
+    return (adminUser(userId) || (userId && doc.owner === userId));
   },
   update: function(userId, docs, fields, modifier) {
-    return adminUser(userId);
+    return adminUser(userId) || 
+    _.all(docs, function(doc) {
+      return doc.owner === userId;
+    });
   },
   remove: function(userId, docs) {
-    return adminUser(userId);
+    return adminUser(userId) ||
+    _.all(docs, function(doc) {
+      return doc.owner === userId;
+    });
   }
 });

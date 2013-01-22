@@ -39,7 +39,7 @@ Template.categories.events({
 	  	if (e.which === 13) {
 		    var catVal = String(e.target.value || "");
 		    if (catVal) {
-		      	lists.insert({Category:catVal});
+		      	lists.insert({Category:catVal, owner:this.userId});
 		      	Session.set('adding_category', false);
 		    }
 	  	}
