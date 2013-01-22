@@ -1,4 +1,7 @@
 /* CSS declarations go here */
+body {
+	background-image: url(/texturetastic_gray.png);
+}
 #lendlib {
 	width:545px;
 	margin:0 auto;
